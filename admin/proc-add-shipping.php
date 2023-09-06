@@ -36,6 +36,7 @@
    $delivery_date = htmlspecialchars($_POST['delivery_date'], ENT_QUOTES, 'UTF-8');
    $completion = htmlspecialchars($_POST['completion'], ENT_QUOTES, 'UTF-8');
 
+   $token = md5($s_phone.date('U'));
 
     // echo $_POST['attach1'];
     // echo '<br>';
@@ -230,7 +231,7 @@
 
     // echo
 
-    $query = "insert into shipment set 	s_name = '$s_name', s_address = '$s_address', s_phone = '$s_phone', s_id = '$s_id', payment_mode = '$payment_mode', product_type = '$product_type', service_mode = '$service_mode', insurance = '$insurance', origin = '$origin', destination = '$destination', quantity = '$quantity', weight = '$weight', variable = '$variable', freight_price = '$freight_price', subtotal = '$subtotal', details = '$details', r_name = '$r_name', r_address = '$r_address', r_phone = '$r_phone', r_id = '$r_id', r_email = '$r_email', tracking_number = '$tracking_number', collection_date = '$collection_date', status = '$status', delivery_date = '$delivery_date', completion = '$completion' ";
+    $query = "insert into shipment set token = '$token', s_name = '$s_name', s_address = '$s_address', s_phone = '$s_phone', s_id = '$s_id', payment_mode = '$payment_mode', product_type = '$product_type', service_mode = '$service_mode', insurance = '$insurance', origin = '$origin', destination = '$destination', quantity = '$quantity', weight = '$weight', variable = '$variable', freight_price = '$freight_price', subtotal = '$subtotal', details = '$details', r_name = '$r_name', r_address = '$r_address', r_phone = '$r_phone', r_id = '$r_id', r_email = '$r_email', tracking_number = '$tracking_number', collection_date = '$collection_date', status = '$status', delivery_date = '$delivery_date', completion = '$completion' ";
 
     // exit;
 

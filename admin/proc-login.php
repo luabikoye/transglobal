@@ -23,7 +23,7 @@
     }
 
     
-    $query = "select * from login where username = '$username' && password = '$password'";
+    $query = "select * from admin_login where username = '$username' && password = '$password'";
     $result = mysqli_query($db, $query);
     $num_rows = mysqli_num_rows($result);
 

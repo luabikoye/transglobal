@@ -1,12 +1,12 @@
 <?php 
 session_start();
 
-// include ('connection/connect.php');
-// if(!isset($_SESSION['valid_user']))
-// {
-//     include('index.php');
-//     exit;
-// }
+include ('connection/connect.php');
+if(!isset($_SESSION['valid_user']))
+{
+    include('index.php');
+    exit;
+}
 
 ?>
 
