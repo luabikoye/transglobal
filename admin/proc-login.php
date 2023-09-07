@@ -29,7 +29,7 @@
 
     if($num_rows > 0)
     { 
-        $_SESSION['valid_user'] = $username;
+        $_SESSION['trans_valid_user'] = $username;
         // sleep(2);
         header ("location: dashboard.php");
         exit;

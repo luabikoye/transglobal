@@ -8,6 +8,21 @@ function root()
    return 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
 }
 
+
+function sender_email(){
+  return 'noreply@transglobalexp.com';
+}
+
+function notification_email()
+{
+  return 'noreply@transglobalexp.com';
+}
+
+function org()
+{
+  return 'Trans Global Express';
+}
+
 function generate_tracking()
 {
   $alpha1 = ucwords(chr(rand(97,122)));
@@ -97,14 +112,14 @@ $mailcontent  = '<html>
 
 
    $mail=new PHPMailer();
-   $mail->IsSMTP();    
-   $mail->Port = $data['smtp_port'];
-$mail->SMTPAuth = true;                
-//sendgrid
-$mail->Username=$data['smtp_username'];
-$mail->Password = $data['smtp_password'];  //yahoo app password for noreply email 
-$mail->Host= $data['smtp_host'];
-$mail->SMTPSecure = $data['smtp_secure']; 
+//    $mail->IsSMTP();    
+//    $mail->Port = $data['smtp_port'];
+// $mail->SMTPAuth = true;                
+// //sendgrid
+// $mail->Username=$data['smtp_username'];
+// $mail->Password = $data['smtp_password'];  //yahoo app password for noreply email 
+// $mail->Host= $data['smtp_host'];
+// $mail->SMTPSecure = $data['smtp_secure']; 
 $mail->From = sender_email();
 $mail->FromName = $fromName;
 $mail->AddAddress($to);

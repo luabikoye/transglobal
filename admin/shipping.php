@@ -3,7 +3,7 @@
 session_start();
 
 include ('connection/connect.php');
-if(!isset($_SESSION['valid_user']))
+if(!isset($_SESSION['trans_valid_user']))
 {
     include('index.php');
     exit;
@@ -26,7 +26,7 @@ if(!isset($_SESSION['valid_user']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="robots" content="noindex,nofollow">
-    <title>Add Shipment</title>
+    <title> Trans Global Admin | Shipments</title>
    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -209,12 +209,12 @@ if(!isset($_SESSION['valid_user']))
                         <td> <?php echo $row['s_address'] ?></td>
                         <td>  
                             <div class="btn-group" role="group">
-                          <a class="btn btn-white btn-sm" href="./update-shipment.php?token=<?php echo $row['token']; ?>">
+                          <a class="btn btn-success btn-sm" href="./update-shipment.php?token=<?php echo $row['token']; ?>">
                                 <i class="bi-pencil-fill me-1"></i> Update Shipment
                                 </a>
 
 
-                                <a class="btn btn-white btn-sm" onclick="return confirm('Are you sure you want to delete?');" href="./delete-record?token=<?php echo $row['token']; ?>&sender=<?php echo $row['s_name'] ?>&tab=shipment&url=<?php echo $_SERVER['PHP_SELF']; ?>">
+                                <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?');" href="./delete-record?token=<?php echo $row['token']; ?>&sender=<?php echo $row['s_name'] ?>&tab=shipment&url=<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <i class="bi-trash me-1"></i> Delete
                                 </a>
                             

@@ -6,106 +6,21 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Courier</title>
+    <title>Trans Global Express | Home</title>
     <!-- google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
         rel="stylesheet">
     <!-- //google-fonts -->
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="icon" type="icon.png" href="assets/images/icon.png">
 </head>
 
 <body>
-    <!--header-->
-    <header id="site-header" class="fixed-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg stroke">
-                <h1>
-                    <a class="navbar-brand" href="index.html">
-                       <img src="assets/images/Trans-Global.png" alt="" style="width: 100px; height: 60px;">
-                    </a>
-                </h1>
-                <!-- if logo is image enable this   
-                <a class="navbar-brand" href="#index.html">
-                    <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                </a> -->
-                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Our Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
-                        <!-- <a class="btn btn-style  " href="">
-                            Tracking</a> -->
-                        <li style="margin-left: 30px;">
-                        <form action="tracking-package.php" method="post">
-                            <input type="text" class="search-input" id="searchInput" name="tracking_id" placeholder="Enter tracking ID" required>
-                            <button class="search-icon" id="searchButton" type="submit">Track Package</button>
-                        
-                        </form>  
-                        </li>
-                    </ul>
-                </div>
-                <style>
-                    .search-input {
-                        padding: 5px;
-                        border-left: none;
-                        border-top: none;
-                        border-right: none;
-                        border-bottom: 1px solid black;
-                        border-bottom-left-radius: 5px;
-                        margin-left: auto;
-                    }
-
-                    /* Style for the search icon */
-                    .search-icon {
-                        background-color: #ff4c4c;
-                        color: #fff;
-                        border: none;
-                        border-radius: 3px;
-                        border-bottom-left-radius: 0px;
-                        padding: 5px 10px;
-                        cursor: pointer;
-                    }
-                    .search-input::placeholder{
-                        color: #ff4c4c;
-                        font-size: smaller;
-                    }
-                </style>
-                <!-- toggle switch for light and dark theme -->
-                <!-- <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div> -->
-                <!-- //toggle switch for light and dark theme -->
-            </nav>
-        </div>
-    </header>
-    <!--//header-->
+   
+    <?php
+        include('header.php');
+    ?>
 
     <!-- banner section -->
     <section class="" id="section_1">
@@ -261,7 +176,7 @@
                     <div class="banner-info-bg">
                         <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
                         <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
-                        <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.html">
+                        <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
                             View our Works</a>
                     </div>
                 </div>
@@ -282,7 +197,7 @@
                 <div class="banner-info-bg">
                     <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
                     <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
-                    <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.html">
+                    <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
                         View our Works</a>
                 </div>
             </div>
@@ -303,7 +218,7 @@
                 <div class="banner-info-bg">
                     <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
                     <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
-                    <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.html">
+                    <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
                         View our Works</a>
                 </div>
             </div>
@@ -361,7 +276,7 @@
                             <i class="fas fa-ship"></i>
                         </div>
                         <div class="about-content">
-                            <h5 class="mb-3"><a href="about.html">Sea Freight</a></h5>
+                            <h5 class="mb-3"><a href="about.php">Sea Freight</a></h5>
                             <p>We offer a cost-effective mode of transporting large quantities of goods internationally, utilizing ocean vessels for global trade.</p>
                         </div>
                     </div>
@@ -372,7 +287,7 @@
                             <i class="fas fa-shipping-fast"></i>
                         </div>
                         <div class="about-content">
-                            <h5 class="mb-3"><a href="about.html">Land Freight</a></h5>
+                            <h5 class="mb-3"><a href="about.php">Land Freight</a></h5>
                             <p>We engage in the transportation of goods over land using trucks, trains, or other vehicles, providing flexible and regional logistics solutions..</p>
                         </div>
                     </div>
@@ -384,7 +299,7 @@
                             <!-- <i class="fas fa-space-awesome"></i> -->
                         </div>
                         <div class="about-content">
-                            <h5 class="mb-3"><a href="about.html">Air Freight</a></h5>
+                            <h5 class="mb-3"><a href="about.php">Air Freight</a></h5>
                             <p>We offer swift global cargo delivery, utilizing airplanes to transport goods quickly and efficiently across international distances.</p>
                         </div>
                     </div>
@@ -466,10 +381,10 @@
             <div class="row">
                 <!-- <div class="col-lg-3 col-sm-6 feature-body border-right-0 border-rgt-res">
                     <div class="feature-info">
-                        <h3 class="feature-titel mb-3"> <a href="about.html">Door to Door Service</a></h3>
+                        <h3 class="feature-titel mb-3"> <a href="about.php">Door to Door Service</a></h3>
                         <p>Sed ut perspiciatis unde omnis iste natus error sit accus antium dolor emque lauda ntium.
                         </p>
-                        <a href="about.html" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
+                        <a href="about.php" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="feature-icon">
                         <i class="fas fa-door-open"></i>
@@ -477,10 +392,10 @@
                 </div> -->
                 <div class="col-lg-4 col-sm-6 feature-body border-right-0 border-right-res border-top-r">
                     <div class="feature-info">
-                        <h3 class="feature-titel mb-3"> <a href="about.html">Warehousing Solutions</a></h3>
+                        <h3 class="feature-titel mb-3"> <a href="about.php">Warehousing Solutions</a></h3>
                         <p>We optimize your supply chain with state-of-the-art warehousing solutions. We provide the foundation for streamlined operations and unmatched efficiency.
                         </p>
-                        <a href="about.html" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
+                        <a href="about.php" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="feature-icon">
                         <i class="fas fa-house-user"></i>
@@ -488,10 +403,10 @@
                 </div>
                 <div class="col-lg-4 col-sm-6 feature-body border-right-0 border-top-res border-rgt-res">
                     <div class="feature-info">
-                        <h3 class="feature-titel mb-3"> <a href="about.html">24/7 Support</a></h3>
+                        <h3 class="feature-titel mb-3"> <a href="about.php">24/7 Support</a></h3>
                         <p>Our commitment to your success never rests – our 24/7 support ensures that your logistics needs are met around the clock, every day.
                         </p>
-                        <a href="about.html" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
+                        <a href="about.php" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="feature-icon">
                         <i class="fas fa-people-carry"></i>
@@ -499,10 +414,10 @@
                 </div>
                 <div class="col-lg-4 col-sm-6 feature-body border-top-res">
                     <div class="feature-info">
-                        <h3 class="feature-titel mb-3"> <a href="about.html">Fast delivery</a></h3>
+                        <h3 class="feature-titel mb-3"> <a href="about.php">Fast delivery</a></h3>
                         <p>Experience the speed of excellence with our logistics solutions, where fast delivery meets unwavering reliability.
                         </p> <br>
-                        <a href="about.html" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
+                        <a href="about.php" class="feature-link">Read More <i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="feature-icon">
                         <i class="fas fa-shipping-fast"></i>
@@ -529,7 +444,7 @@
                                 <a class="call-style-w3" href="tel:+1(23) 456 789 0000">+1(23) 456 789 0000</a>
                             </li>
                             <li class="green">Or</li>
-                            <li><a href="contact.html" class="btn btn-style">Get in touch</a> </li>
+                            <li><a href="contact.php" class="btn btn-style">Get in touch</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -582,12 +497,12 @@
                 <div class="col-lg-2 col-sm-6 sub-two-right mt-lg-0 mt-sm-5 mt-4">
                     <h6>Quick links</h6>
                     <ul>
-                        <li><a href="index.html"><span class="fas fa-angle-right mr-2"></span>Home</a></li>
-                        <li><a href="about.html"><span class="fas fa-angle-right mr-2"></span>About Us</a>
+                        <li><a href="index.php"><span class="fas fa-angle-right mr-2"></span>Home</a></li>
+                        <li><a href="about.php"><span class="fas fa-angle-right mr-2"></span>About Us</a>
                         </li>
-                        <li><a href="services.html"><span class="fas fa-angle-right mr-2"></span>Our Services</a>
+                        <li><a href="services.php"><span class="fas fa-angle-right mr-2"></span>Our Services</a>
                         </li>
-                        <li><a href="contact.html"><span class="fas fa-angle-right mr-2"></span>Contact Us</a></li>
+                        <li><a href="contact.php"><span class="fas fa-angle-right mr-2"></span>Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-sm-6 sub-two-right pl-lg-5 mt-lg-0 mt-sm-5 mt-4">

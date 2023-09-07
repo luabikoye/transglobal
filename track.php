@@ -11,94 +11,15 @@
         <link rel="stylesheet" href="assets/css/style-starter.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+        <link rel="icon" type="icon.png" href="assets/images/icon.png">
     </head>
 <body>
     
-    <header id="site-header" class="fixed-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg stroke">
-                <h1>
-                    <a class="navbar-brand" href="index.html">
-                       <img src="assets/images/Trans-Global.png" alt="" style="width: 100px; height: 60px;">
-                    </a>
-                </h1>
-                <!-- if logo is image enable this   
-                <a class="navbar-brand" href="#index.html">
-                    <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                </a> -->
-                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                </button>
+   
+<?php
+        include('header.php');
+    ?>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li >
-                            <a class="nav-link" href="index.html">Home </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Our Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
-                        </li>
-                        <!-- <a class="btn btn-style  " href="">
-                            Tracking</a> -->
-                        <li class="nav-item active"> <span class="sr-only">(current)</span>
-                            <input type="text" class="search-input" id="searchInput" placeholder="Enter tracking ID">
-                            <button class="search-icon" id="searchButton">Search</button>
-                        </li>
-                    </ul>
-                </div>
-                <style>
-                    .search-input {
-                        padding: 5px;
-                        border-left: none;
-                        border-top: none;
-                        border-right: none;
-                        border-bottom: 1px solid black;
-                        border-bottom-left-radius: 5px;
-                        margin-left: auto;
-                    }
-
-                    /* Style for the search icon */
-                    .search-icon {
-                        background-color: #ff4c4c;
-                        color: #fff;
-                        border: none;
-                        border-radius: 3px;
-                        border-bottom-left-radius: 0px;
-                        padding: 5px 10px;
-                        cursor: pointer;
-                    }
-                    .search-input::placeholder{
-                        color: #ff4c4c;
-                        font-size: smaller;
-                    }
-                </style>
-                <!-- toggle switch for light and dark theme -->
-                <!-- <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div> -->
-                <!-- //toggle switch for light and dark theme -->
-            </nav>
-        </div>
-    </header>
 
     <div class="container track-page">
         <div class="row">
@@ -112,7 +33,7 @@
             </div>
             <div class="col-md-4" style="text-align: justify; margin-top: 10px; ">
                 <h6 style="color: black; font-weight: bold;;">TRACKING ID</h6>
-                <p>123456789012</p>
+                <p><?php echo $row['tracking_number']; ?></p>
             </div>
         </div>
         <div>
@@ -193,7 +114,7 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p style="color: #fff;">123456789012</p>
+                        <p style="color: #fff;"><?php echo $row['tracking_number']; ?></p>
                     </div>
                 </div>
                 <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
@@ -202,7 +123,7 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p>8/1/22</p>
+                        <p><?php echo mydate($row['delivery_date']); ?></p>
                     </div>
                 </div>
                 <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
@@ -211,7 +132,7 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p style="color: #fff;">Pending</p>
+                        <p style="color: #fff;"><?php echo package_status($shipment_token); ?></p>
                     </div>
                 </div>
             </div>
@@ -290,64 +211,37 @@
                 </div>
             </div>
             <br>
+
+            <?php
+
+                $query_t = "select * from tracking where shipment_token = '$shipment_token' order by id desc";
+                $result_t = mysqli_query($db, $query_t);
+                $num_t = mysqli_num_rows($result_t);
+               for($i=0; $i<$num_t; $i++)
+               {
+                $row_t = mysqli_fetch_array($result_t);
+            ?>
+
             <hr style="border: 1px solid black;">
             <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
                 <div class="col-md-4" style="text-align: left;">
-                    <p>Tuesday, 4/12/22</p>
+                    <p><?php echo $row['tracking_number']; ?></p>
                     
                 </div>
                 <div class="col-md-4 roadmap-item">
-                    <p ><b>5:40am</b></p>
-                    <p>At local FedEx facility</p>
+                    <p ><b><?php echo mydatetime($row_t['datetime']); ?></b></p>
+                    <p>At <?php echo $row_t['current_location']; ?></p>
                                     
                     <div class="dot"></div>
                 </div>
                 <div class="col-md-4">
-                    <p>BRIDGEPORT, WV</p>
+                    <p><?php echo $row_t['status']; ?></p>
                 </div>
             </div>
-            <hr style="border: 1px solid black;">
-
-            <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
-                <div class="col-md-4" style="text-align: left;">
-                    <p>Tuesday, 4/12/22</p>
-                    
-                </div>
-                <div class="col-md-4 roadmap-item">
-                    <p ><b>5:54 AM</b></p>
-                    <p>At local FedEx facility</p>
-                                    
-                    <div class="dot"></div>
-                </div>
-                <div class="col-md-4">
-                    <p>BRIDGEPORT, WV</p>
-                </div>
-            </div>
-            <hr style="border: 1px solid black;">
-
-            <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
-                <div class="col-md-4" style="text-align: left;">
-                    <p>Tuesday, 5/31/22</p>
-                    
-                </div>
-                <div class="col-md-4 roadmap-item">
-                    <p ><b>7:52 AM</b></p>
-                    <p>Arrived at FedEx location</p>
-                                    
-                    <div class="dot"></div>
-                </div>
-                <div class="col-md-4">
-                    <p>INDEPENDENCE, KY</p>
-                </div>
-            </div>
-            <hr style="border: 1px solid black;">
-            <br><br>
-
-            <h2 style="font-weight: 200;">Watch List</h2><br>
-            <p style="text-align: center;">You do not currently have any Watch list shipments.</p>
-        </div>
-        
-
+          <?php
+               }
+               ?>
+<br><br>
         <!-- footer -->
         <footer class="w3l-footer-22 py-5">
             <div class="container py-md-5 py-4">
@@ -392,12 +286,12 @@
                     <div class="col-lg-2 col-sm-6 sub-two-right mt-lg-0 mt-sm-5 mt-4">
                         <h6>Quick links</h6>
                         <ul>
-                            <li><a href="index.html"><span class="fas fa-angle-right mr-2"></span>Home</a></li>
-                            <li><a href="about.html"><span class="fas fa-angle-right mr-2"></span>About Us</a>
+                            <li><a href="index.php"><span class="fas fa-angle-right mr-2"></span>Home</a></li>
+                            <li><a href="about.php"><span class="fas fa-angle-right mr-2"></span>About Us</a>
                             </li>
-                            <li><a href="services.html"><span class="fas fa-angle-right mr-2"></span>Our Services</a>
+                            <li><a href="services.php"><span class="fas fa-angle-right mr-2"></span>Our Services</a>
                             </li>
-                            <li><a href="contact.html"><span class="fas fa-angle-right mr-2"></span>Contact Us</a></li>
+                            <li><a href="contact.php"><span class="fas fa-angle-right mr-2"></span>Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-sm-6 sub-two-right pl-lg-5 mt-lg-0 mt-sm-5 mt-4">

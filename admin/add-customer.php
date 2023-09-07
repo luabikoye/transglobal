@@ -2,7 +2,7 @@
 
 // session_start ();
 
-// if(!isset($_SESSION['valid_user']))
+// if(!isset($_SESSION['trans_valid_user']))
 // {
 //     include('index.php');
 //     exit;

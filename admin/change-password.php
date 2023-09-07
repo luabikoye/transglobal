@@ -2,7 +2,7 @@
 
 session_start ();
 
-if(!isset($_SESSION['valid_user']))
+if(!isset($_SESSION['trans_valid_user']))
 {
     include('index.php');
     exit;
@@ -58,7 +58,7 @@ if(!isset($_SESSION['valid_user']))
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
+                    <a class="navbar-brand" href="dashboard.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->

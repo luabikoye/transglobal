@@ -10,7 +10,7 @@ require_once('include/fns.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="robots" content="noindex,nofollow">
-    <title>Add Shipment</title>
+    <title>Trans Global Express Add Shipment</title>
    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -221,7 +221,7 @@ require_once('include/fns.php');
 
                                 <div class="img-text">
                                     <label>Collection Date </label>
-                                    <input type="text" onfocus="(this.type='date')" placeholder="Collection date" name="collection_date" class="form-control"  value="<?php echo $collection_date  ;?>">
+                                    <input type="text" onfocus="(this.type='date')" placeholder="Collection date" name="collection_date" class="form-control"  value="<?php echo $collection_date  ;?>" >
                                     <br>
                                 </div>
                               

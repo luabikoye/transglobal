@@ -3,7 +3,7 @@
     session_start();
     include ('connection/connect.php');
   
-    $valid_user = $_SESSION['valid_user'];
+    $valid_user = $_SESSION['trans_valid_user'];
     
     // $password = $_POST['password'];
     $old_password = $_POST['old_password'];

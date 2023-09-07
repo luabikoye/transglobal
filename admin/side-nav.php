@@ -14,7 +14,7 @@
                 <span class="hide-menu">Shipping</span>
             </a>
         </li>
-        <li class="sidebar-item">
+        <!-- <li class="sidebar-item">
             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="add-question.php" aria-expanded="false">
                 <i class="fa fa-database" aria-hidden="true"></i>
                 <span class="hide-menu">Account Management</span>
@@ -37,7 +37,7 @@
                 <i class="fa fa-database" aria-hidden="true"></i>
                 <span class="hide-menu">Company</span>
             </a>
-        </li>
+        </li> -->
         <!-- <li class="sidebar-item">
             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="add-question.php" aria-expanded="false">
                 <i class="fa fa-database" aria-hidden="true"></i>
