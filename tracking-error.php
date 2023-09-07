@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Bar with Search</title>
+    <title><?php echo $tracking_id; ?> - Not found</title>
     <link href="//fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- //google-fonts -->
     <!-- Template CSS Style link -->
@@ -114,7 +107,7 @@
          </div>
          <div class="col-md-4"></div>
         </div>
-        <h2>The Tracking ID is not valid, please check again.</h2>
+        <h2>The Tracking ID <?php echo $tracking_id; ?> is not valid. <br><br><br><a href="javascript:history.back();">Click here.</a> please check again</h2> <br><br> <br><br> <br><br>
     </div>
 
 

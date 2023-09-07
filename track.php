@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Menu Bar with Search</title>
+        <title>Tracking Package ::: <?php echo $tracking_id; ?> </title>
         <link href="//fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
         <!-- //google-fonts -->
         <!-- Template CSS Style link -->
@@ -103,11 +104,11 @@
         <div class="row">
             <div class="col-md-4" style="text-align: justify; margin-top: 10px; ">
                 <h6 style="color: black; font-weight: bold;;">SCHEDULED DELIVERY DATE</h6>
-                <P><b>Pending</b></P>
+                <P><b><?php echo mydate($row['delivery_date']); ?></b></P>
             </div>
             <div class="col-md-4" style="text-align: justify; margin-top: 10px; ">
                 <h6 style="color: black; font-weight: bold;;">DELIVERY STATUS</h6>
-                <p>In transit.....</p>
+                <p><?php echo package_status($shipment_token); ?></p>
             </div>
             <div class="col-md-4" style="text-align: justify; margin-top: 10px; ">
                 <h6 style="color: black; font-weight: bold;;">TRACKING ID</h6>
@@ -144,30 +145,33 @@
                         <div class="roadmap">
                             <div class="roadmap-item">
                                 <h3>FROM</h3>
+                                <p><?php echo $row['s_name']; ?>, <?php echo $row['s_address']; ?>
+                                </p>
                                 <div class="dot"></div>
                             </div>
                             <div class="roadmap-item">
                                 <h3>WE HAVE YOUR PACKAGE</h3>
+                                <p><?php echo $row['origin']; ?>
+                                </p>
                            
                                 <div class="dot"></div>
                             </div>
                             <div class="roadmap-item">
                                 <h3>IN TRANSIT</h3>
-                                <p>At FedEx destination facility
-                                    BRIDGEPORT, WV
-                                    12/11/22 5:36 AM
+                                <p><?php echo package_status($shipment_token, 'In Transit'); ?>
                                 </p>
                                 <div class="dot"></div>
                             </div>
                             <div class="roadmap-item">
-                                <h3>OUT FOR DELIVERY</h3>
-                                
+                                <h3>PARCEL DELIVERED</h3>
+                                <p><?php echo package_status($shipment_token, 'Parcel Delivered'); ?>
+                                </p>
                                 <div class="dot"></div>
                             </div>
                             <div class="roadmap-item">
                                 <h3>TO</h3>
-                                <p>Scheduled Delivery Date <br>
-                                    Pending</p>
+                                <p><?php echo $row['r_name']; ?>, <?php echo $row['r_address']; ?>
+                                </p>
                                 <div class="dot"></div>
                             </div>
                         </div>

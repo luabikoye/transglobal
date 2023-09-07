@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+require_once('include/fns.php');
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -182,43 +185,43 @@
 
                                 <div class="img-text">
                                     <label>Recipient Name</label>
-                                    <input type="text" placeholder="Recipient name" name="r_name" class="form-control"  value="<?php echo $firstname  ;?>" required>
+                                    <input type="text" placeholder="Recipient name" name="r_name" class="form-control"  value="<?php echo $r_name  ;?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Address</label>
-                                    <input type="text" placeholder="Recipient address" name="r_address" class="form-control"  value="<?php echo $lastname  ;?>" required>
+                                    <input type="text" placeholder="Recipient address" name="r_address" class="form-control"  value="<?php echo $r_address  ;?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Phone</label>
-                                    <input type="text" placeholder="Recipient phone" name="r_phone" class="form-control"  value="<?php echo $email  ;?>" required>
+                                    <input type="text" placeholder="Recipient phone" name="r_phone" class="form-control"  value="<?php echo $r_phone  ;?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>ID</label>
-                                    <input type="text" placeholder="Recipient ID" name="r_id" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Recipient ID" name="r_id" class="form-control"  value="<?php echo $r_id  ;?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Email</label>
-                                    <input type="text" placeholder="Recipient email" name="r_email" class="form-control"  value="<?php echo $email  ;?>" required>
+                                    <input type="text" placeholder="Recipient email" name="r_email" class="form-control"  value="<?php echo $r_email  ;?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Tracking Number</label>
-                                    <input type="text" placeholder="Tracking number" name="tracking_number" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Tracking number" name="tracking_number" class="form-control"  value="<?php if($tracking_number) { echo $tracking_number; } else { echo generate_tracking(); } ?>" required>
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Collection Date </label>
-                                    <input type="text" onfocus="(this.type='date')" placeholder="Collection date" name="collection_date" class="form-control"  value="<?php echo $date_birth  ;?>">
+                                    <input type="text" onfocus="(this.type='date')" placeholder="Collection date" name="collection_date" class="form-control"  value="<?php echo $collection_date  ;?>">
                                     <br>
                                 </div>
                               
@@ -228,7 +231,7 @@
                                         <option value="N/A">Select Status</option>
                                         <option>In Transit</option>
                                         <option>Parcel Received</option>
-                                        <option>Parcel Sipped</option>
+                                        <option>Parcel Shipped</option>
                                         <option>Pending</option>
                                         <option>On Hold</option>
                                         <option>Office Verification</option>
@@ -240,13 +243,13 @@
 
                                 <div class="img-text">
                                     <label>Schedule Delivery </label>
-                                    <input type="text" onfocus="(this.type='date')" placeholder="Delivery date" name="delivery_date" class="form-control"  value="<?php echo $date_birth  ;?>">
+                                    <input type="text" onfocus="(this.type='date')" placeholder="Delivery date" name="delivery_date" class="form-control"  value="<?php echo $delivery_date  ;?>">
                                     <br>
                                 </div>
 
                                 <div class="img-text">
                                     <label>Delivery Completion % </label>
-                                    <input type="text" placeholder="15, 30, 50, 60, 80.... depending" name="completion" class="form-control"  value="<?php echo $date_birth  ;?>">
+                                    <input type="text" placeholder="15, 30, 50, 60, 80.... depending" name="completion" class="form-control"  value="<?php echo $completion  ;?>">
                                     <br>
                                 </div>
 
@@ -257,24 +260,24 @@
 
                               <div class="img-text">
                               <label>Sender Name</label>
-                              <input type="text" placeholder="Sender name" name="s_name" class="form-control"  value="<?php echo $firstname  ;?>" required> <br>
+                              <input type="text" placeholder="Sender name" name="s_name" class="form-control"  value="<?php echo $s_name  ;?>" required> <br>
                                 </div>
 
                               <div class="img-text">
                               <label>Address</label>
-                              <input type="text" placeholder="Sender address" name="s_address" class="form-control"  value="<?php echo $lastname  ;?>" required>
+                              <input type="text" placeholder="Sender address" name="s_address" class="form-control"  value="<?php echo $s_address  ;?>" required>
                               <br>
                                 </div>
 
                               <div class="img-text">
                               <label>Phone</label>
-                              <input type="text" placeholder="Sender phone" name="s_phone" class="form-control"  value="<?php echo $email  ;?>" required>
+                              <input type="text" placeholder="Sender phone" name="s_phone" class="form-control"  value="<?php echo $s_phone  ;?>" required>
                               <br>
                                 </div>
 
                               <div class="img-text">
                               <label>ID</label>
-                              <input type="text" placeholder="Sender ID" name="s_id" class="form-control"  value="<?php echo $phone  ;?>" required>
+                              <input type="text" placeholder="Sender ID" name="s_id" class="form-control"  value="<?php echo $s_id  ;?>" required>
                               <br>
                                 </div>
 
@@ -294,7 +297,7 @@
 
                               <div class="img-text">
                                 <label>Product Type</label>
-                                <input type="text" placeholder="Product type" name="product_type" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                <input type="text" placeholder="Product type" name="product_type" class="form-control"  value="<?php echo $product_type  ;?>" required>
                                 <br>
                               </div>
 
@@ -312,14 +315,14 @@
 
                               <div class="img-text">
                                 <label>Insurance of the Shipment</label>
-                                <input type="text" placeholder="Shipment insurance" name="insurance" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                <input type="text" placeholder="Shipment insurance" name="insurance" class="form-control"  value="<?php echo $insurance  ;?>" required>
                                 <br>
                               </div>
 
                                 <div class="img-text">
                                     <label>Office of Origin</label>
                                     <select name="origin" class="form-control">
-                                        <option value="N/A">Trans Global Express Holland</option>
+                                    <option>Trans Global Express</option>
                                   
                                     </select>
                                     <br>
@@ -327,37 +330,37 @@
                                 
                                 <div class="img-text">
                                     <label>Destination Office</label>
-                                    <input type="text" placeholder="Destination office" name="destination" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Destination office" name="destination" class="form-control"  value="<?php echo $destination  ;?>" required>
                                     <br>
                                 </div>
                                 
                                 <div class="img-text">
                                     <label>Quantity</label>
-                                    <input type="text" placeholder="Quantity" name="quantity" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Quantity" name="quantity" class="form-control"  value="<?php echo $quantity  ;?>" required>
                                     <br>
                                 </div>
                                 
                                 <div class="img-text">
                                     <label>Weight (KG)</label>
-                                    <input type="text" placeholder="Weight" name="weight" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Weight" name="weight" class="form-control"  value="<?php echo $weight  ;?>" required>
                                     <br>
                                 </div>
                                 
                                 <div class="img-text">
                                     <label>$ Variable (KG)</label>
-                                    <input type="text" placeholder="Variable" name="variable" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Variable" name="variable" class="form-control"  value="<?php echo $variable  ;?>" required>
                                     <br>
                                 </div>
                                 
                                 <div class="img-text">
                                     <label>Freight Price</label>
-                                    <input type="text" placeholder="Freight price" name="freight_price" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Freight price" name="freight_price" class="form-control"  value="<?php echo $freight_price  ;?>" required>
                                     <br>
                                 </div>
                                 
                                 <div class="img-text">
                                     <label>Subtotal Shipping</label>
-                                    <input type="text" placeholder="Subtotal shipping" name="subtotal" class="form-control"  value="<?php echo $phone  ;?>" required>
+                                    <input type="text" placeholder="Subtotal shipping" name="subtotal" class="form-control"  value="<?php echo $subtotal  ;?>" required>
                                     <br>
                                 </div>
                                 
@@ -366,7 +369,6 @@
                                     <textarea name="details" placeholder="Enter shipping details" id="" cols="30" rows="10"></textarea>
                                     <br>
                                 </div>
-                            
                             
                                 <div class="img-text" style="margin-top: 40px;">
                                 <input class="btn btn-success" style=" margin-bottom: 10px;"  type="submit" value="Save Shipping Details"> 

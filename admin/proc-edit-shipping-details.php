@@ -251,7 +251,7 @@
 
     else
     {   
-        $error1 = 'Shipment with this tracking ID already exists.';
+        $error1 = 'Shipment already exists.';
         include('add-shipping.php');
         exit;
     }

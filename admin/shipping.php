@@ -9,19 +9,14 @@ if(!isset($_SESSION['valid_user']))
     exit;
 }
 
-$shipment_token = $_GET['token'];
+    $query = "select * from shipment order by id desc";  
 
-
- $sh_query = "select * from tracking where shipment_token = '$shipment_token' order by id desc";
-$sh_result = mysqli_query($db,$sh_query);
-$sh_num = mysqli_num_rows($sh_result);
-if($sh_num > 0)
-{
-    $sh_row = mysqli_fetch_array($sh_result);
-     $tracking_status = $sh_row['status'];
-}
+    $result = mysqli_query($db,$query);
+    $num = mysqli_num_rows($result);
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +26,7 @@ if($sh_num > 0)
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="robots" content="noindex,nofollow">
-    <title>Update Shipment</title>
+    <title>Add Shipment</title>
    
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
@@ -45,7 +40,6 @@ if($sh_num > 0)
 <![endif]-->
 </head>
 <body>
-    
         <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -161,16 +155,16 @@ if($sh_num > 0)
                 <div class="page-breadcrumb bg-white">
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Update Tracking Information</h4>
+                            <h4 class="page-title"> Shipping Info</h4>
                         </div>
                         <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                             <div class="d-md-flex">
                                 <ol class="breadcrumb ms-auto">
                                     <li><a href="#" class="fw-normal"></a></li>
                                 </ol>
-                                <!-- <a href="proc-add-question.php" target=""
-                                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Save
-                                    </a> -->
+                                <a href="add-shipping.php" target=""
+                                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Add Shipment
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -188,89 +182,19 @@ if($sh_num > 0)
 
         <div class="container-fluid">
               
-               
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-
-                <div class="row white-box">
-                        <form action="proc-update-shipping.php" method="post">
-                        
-                        <?php if($error1) echo '<div class="alert alert-danger">'.$error1.'</div>' ;?>
-                        <?php if($success1) echo '<div class="alert alert-success">'.$success1.'</div>';?>
-                        <?php if($_GET['succ'] == 'yes') echo '<div class="alert alert-success">Shippment submitted successfully</div>';?>
-
-                            <div class="row">
-
-                            <div class="col-6">
-                                <h4 class="page-title">Recipient Details</h4> <br>
-
-                                <div class="img-text">
-                                <label>Status</label>
-                                    <select name="status" class="form-control" require>
-                                       
-                                        <?php if($tracking_status)
-                                            {
-                                                ?>
-                                                    <option><?php echo $tracking_status; ?></option>
-                                                <?php
-                                                
-                                            }
-                                        ?>
-
-                                        <option value=" ">Select Status</option>
-                                        <option>In Transit</option>
-                                        <option>Parcel Received</option>
-                                        <option>Parcel Shipped</option>
-                                        <option>Parcel Delivered</option>
-                                        <option>Pending</option>
-                                        <option>On Hold</option>
-                                        <option>Office Verification</option>
-                                        <option>Awaiting Payment</option>
-                                        <option>Parcel in Transit to Destination</option>
-                                    </select><br>
-                                </div>
-
-                                <div class="img-text">
-                                    <label>Current Location</label>
-                                    <input type="text" placeholder="Lisbon Portugal, TX" name="current_location" class="form-control"  value="<?php echo $row['current_location'] ;?>" required>
-                                    <br>
-                                </div>
-
-                             
-                            
-                                <div class="img-text" style="margin-top: 40px;">
-                               
-                                <input type="hidden" name="shipment_token" value="<?php echo $shipment_token; ?>">
-                               
-                                <input class="btn btn-success" style=" margin-bottom: 10px;"  type="submit" value="Update Tracking"> 
-                                </div><br>
-
-                            </div>
-                            </div>
-                        </form>
-
-                        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                            <h4 class="page-title">Tracking History</h4>
-                        </div>
-
-
-                        <table class="table table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Sender Name</th>
+                    <th scope="col">Tracking Number</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Current Location</th>
-                    <th scope="col">Date/Time</th>
+                    <th scope="col">Sender Address</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
-    $query = "select * from tracking where shipment_token = '$shipment_token' order by id desc";  
-
-    $result = mysqli_query($db,$query);
-    $num = mysqli_num_rows($result);
 
                         for($i=0; $i<$num; $i++)
                         {
@@ -278,16 +202,19 @@ if($sh_num > 0)
 
                     ?>
                     <tr>
-                        <th scope="row"> <?php echo $i+1 ?></th>
+                        <th scope="row"> <?php echo $i+1; ?></th>
+                        <td> <?php echo $row['s_name'] ?></td>
+                        <td> <?php echo $row['tracking_number'] ?></td>
                         <td> <?php echo $row['status'] ?></td>
-                        <td> <?php echo $row['current_location'] ?></td>
-                        <td> <?php echo $row['datetime'] ?></td>
+                        <td> <?php echo $row['s_address'] ?></td>
                         <td>  
                             <div class="btn-group" role="group">
-                         
+                          <a class="btn btn-white btn-sm" href="./update-shipment.php?token=<?php echo $row['token']; ?>">
+                                <i class="bi-pencil-fill me-1"></i> Update Shipment
+                                </a>
 
 
-                                <a class="btn btn-white btn-sm" onclick="return confirm('Are you sure you want to delete?');" href="./delete-record?token=<?php echo $row['token']; ?>&tab=tracking&url=update-shipment.php?token=<?php echo $row['shipment_token']; ?>">
+                                <a class="btn btn-white btn-sm" onclick="return confirm('Are you sure you want to delete?');" href="./delete-record?token=<?php echo $row['token']; ?>&sender=<?php echo $row['s_name'] ?>&tab=shipment&url=<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <i class="bi-trash me-1"></i> Delete
                                 </a>
                             
@@ -297,8 +224,11 @@ if($sh_num > 0)
                     <?php } ?>
                 </tbody>
             </table>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
 
-                </div>
+             
         </div>
 
 

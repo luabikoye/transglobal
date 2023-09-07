@@ -9,9 +9,9 @@
         </li>
 
         <li class="sidebar-item">
-            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="add-shipping.php" aria-expanded="false">
+            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="shipping.php" aria-expanded="false">
                 <i class="fa fa-database" aria-hidden="true"></i>
-                <span class="hide-menu">Add Shipping</span>
+                <span class="hide-menu">Shipping</span>
             </a>
         </li>
         <li class="sidebar-item">
