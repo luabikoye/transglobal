@@ -68,7 +68,7 @@
                     </div>
                     <div class="content-top-ab pt-4 mt-lg-5 mt-4">
                         <h3>Call to Ask Any Question</h3>
-                        <a class="call-style-ab" href="tel:+1(23) 456 789 0000">+1(23) 456 789 0000</a>
+                        <a class="call-style-ab" href="tel:+31 970 050 344 71">+31 970 050 344 71</a>
                     </div>
                 </div>
             </div>
@@ -287,7 +287,7 @@
         <div class="copyright-footer text-center mt-4">
             <div class="container">
                 <div class="columns">
-                    <p>&copy; 2023 Courier | All rights reserved.
+                    <p>&copy; 2023 Trans Global Express Holland | All rights reserved.
                     </p>
                 </div>
             </div>

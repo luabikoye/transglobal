@@ -176,7 +176,7 @@
         <div class="copyright-footer text-center mt-4">
             <div class="container">
                 <div class="columns">
-                    <p>&copy; 2023 Courier | All rights reserved.
+                    <p>&copy; 2023 Trans Global Express Holland | All rights reserved.
                     </p>
                 </div>
             </div>

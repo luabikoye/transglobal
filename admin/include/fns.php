@@ -15,12 +15,13 @@ function sender_email(){
 
 function notification_email()
 {
-  return 'noreply@transglobalexp.com';
+  return 'info@transglobalexp.com';
+  // return 'luabikoye@yahoo.com';
 }
 
 function org()
 {
-  return 'Trans Global Express';
+  return 'Trans Global Express Holland';
 }
 
 function generate_tracking()
@@ -82,7 +83,7 @@ $mailcontent  = '<html>
 			
 			<div>
 			<div style="margin-bottom:15px;" id="username">
-            <input type="image" src="'.root().'/images/logo.png" style="width:150px;" />
+            <input type="image" src="'.root().'/Trans-Global.png" style="width:150px;" />
             
 				<p>Hello '.ucwords($name).',</p>
 
@@ -103,7 +104,7 @@ $mailcontent  = '<html>
 
     <div style="clear:both;"></div>
     
-    <div id="copyright" style="font-size:13px; margin-top:5px;">Copyright &copy; - '.date('Y').'. '.organisation().'</div>
+    <div id="copyright" style="font-size:13px; margin-top:5px;">Copyright &copy; - '.date('Y').'. '.org().'</div>
     <div style="clear:both;"></div>
     </div>
 </div>

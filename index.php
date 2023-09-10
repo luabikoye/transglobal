@@ -441,7 +441,7 @@
                         <ul class="buttons">
                             <li class="phone-sec"><span class="fa fa-volume-control-phone mr-1"
                                     aria-hidden="true"></span>
-                                <a class="call-style-w3" href="tel:+1(23) 456 789 0000">+1(23) 456 789 0000</a>
+                                <a class="call-style-w3" href="tel:+31 970 050 344 71">+31 970 050 344 71</a>
                             </li>
                             <li class="green">Or</li>
                             <li><a href="contact.php" class="btn btn-style">Get in touch</a> </li>
@@ -524,7 +524,7 @@
         <div class="copyright-footer text-center mt-4">
             <div class="container">
                 <div class="columns">
-                    <p>&copy; 2023 Courier | All rights reserved.
+                    <p>&copy; 2023 Trans Global Express Holland | All rights reserved.
                     </p>
                 </div>
             </div>

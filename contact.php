@@ -28,9 +28,7 @@
 
     <!-- inner banner -->
     <div class="map mt-4 pt-5">
-        <iframe class="map-w3layouts"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317718.69319292053!2d-0.3817765050863085!3d51.528307984912544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C+UK!5e0!3m2!1sen!2spl!4v1562654563739!5m2!1sen!2spl"
-            width="100%" frameborder="0" style="border: 0px;" allowfullscreen=""></iframe>
+        <iframe class="map-w3layouts" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.2137106291743!2d4.736355412211505!3d52.29397545282243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5e730c5f078ed%3A0x646cce78387c862c!2sMaraboeweg%201%2C%201118%20EA%20Schiphol%2C%20Netherlands!5e0!3m2!1sen!2suk!4v1694349775501!5m2!1sen!2suk" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- //inner banner -->
 
@@ -44,17 +42,17 @@
                 <div class="col-lg-3 col-sm-6 contact-info">
                     <i class="fas fa-map-marked-alt"></i>
                     <h4>Location</h4>
-                    <p>London, 235 Terry, 10001</p>
+                    <p>Maraboeweg 1, 1118 EA Schiphol, Netherlands</p>
                 </div>
                 <div class="col-lg-3 col-sm-6 contact-info mt-md-0 mt-4">
                     <i class="fas fa-headset"></i>
                     <h4>Phone</h4>
-                    <p><a href="tel:+44 987 654 321">+44 123 984 439</a></p>
+                    <p><a href="tel:+44 987 654 321">+31 970 050 344 71</a></p>
                 </div>
                 <div class="col-lg-3 col-sm-6 contact-info mt-lg-0 mt-4">
                     <i class="fas fa-envelope-open-text"></i>
                     <h4>Email</h4>
-                    <p><a href="mailto:mail@example.com" class="email">mail@example.com</a></p>
+                    <p><a href="mailto:info@Trans Globalex.com" class="email">info@transglobalex.com</a></p>
                 </div>
                 <div class="col-lg-3 col-sm-6 contact-info mt-lg-0 mt-4">
                     <i class="fas fa-user-clock"></i>
@@ -138,7 +136,7 @@
         <div class="copyright-footer text-center mt-4">
             <div class="container">
                 <div class="columns">
-                    <p>&copy; 2023 Courier | All rights reserved.
+                    <p>&copy; 2023 Trans Global Express Holland | All rights reserved.
                     </p>
                 </div>
             </div>
