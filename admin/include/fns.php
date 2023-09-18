@@ -2,12 +2,23 @@
 
 date_default_timezone_set("Africa/Lagos");
 
+
 function root()
 {
 
    return 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
 }
 
+function website()
+{
+
+   return 'http://'.$_SERVER['HTTP_HOST'].'/';
+}
+
+function contact_email()
+{
+  return 'tracking@transglobalexp.com';
+}
 
 function sender_email(){
   return 'noreply@transglobalexp.com';
@@ -15,13 +26,25 @@ function sender_email(){
 
 function notification_email()
 {
-  return 'info@transglobalexp.com';
-  // return 'luabikoye@yahoo.com';
+  // return 'info@transglobalexp.com';
+  return 'luabikoye@yahoo.com';
 }
 
 function org()
 {
   return 'Trans Global Express Holland';
+}
+
+function organisation()
+{
+  return 'Trans Global Express Holland';
+}
+
+function imgpath()
+{
+	global $imgpath;
+	return $imgpath;
+
 }
 
 function generate_tracking()
@@ -32,6 +55,40 @@ function generate_tracking()
   $tracking = $alpha1.$alpha2.$alpha3.rand(1000000,9999999);
 
   return $tracking;
+}
+
+
+function count_tab($tab,$distinct = 'none')
+{
+      global $db;
+      if($distinct == 'none')
+      {
+        $query = "select * from $tab";
+      }else{
+
+        $query = "select distinct $distinct from $tab";
+      }
+      $result = mysqli_query($db, $query);
+      $num = mysqli_num_rows($result);
+      return $num;
+}
+
+function count_tab_status($tab,$status)
+{
+      global $db;
+      $query = "select * from $tab where status = '$status'";
+      $result = mysqli_query($db, $query);
+      $num = mysqli_num_rows($result);
+      return $num;
+}
+
+function count_tracking($token)
+{
+      global $db;
+      $query = "select * from tracking where shipment_token = '$token'";
+      $result = mysqli_query($db, $query);
+      $num = mysqli_num_rows($result);
+      return $num;
 }
 
 function package_status($token, $status = 'none')
@@ -47,9 +104,36 @@ function package_status($token, $status = 'none')
     else{
       $query = "select * from tracking where shipment_token = '$token' and status = '$status' order by id desc";
       $result = mysqli_query($db, $query);
-      $row = mysqli_fetch_array($result);
-      return $row['current_location'].' '.mydatetime($row['datetime']);
+      $num = mysqli_num_rows($result);
+      if($num > 0)
+      {
+        $row = mysqli_fetch_array($result);
+        return $row['current_location'].' '.mydatetime($row['datetime']);
+      }
+      else
+      {
+        return 'Information not available';
+      }
+      
     }
+}
+
+function get_completion($token)
+{
+  global $db;
+      $query = "select * from tracking where shipment_token = '$token' order by id desc";
+      $result = mysqli_query($db, $query);
+      $row = mysqli_fetch_array($result);
+      return $row['completion'];
+}
+
+function get_val($token,$col)
+{
+      global $db;
+      $query = "select * from shipment where token = '$token' order by id desc";
+      $result = mysqli_query($db, $query);
+      $row = mysqli_fetch_array($result);
+      return $row[$col];
 }
 
 function mydate($date)
@@ -61,90 +145,58 @@ function mydatetime($date)
 {
   return date('d-m-Y h:i A', strtotime($date));
 }
-function send_email($to,$name,$fromName,$subject,$message,$file='none')
+
+function send_email($to,$recipient_name,$subject,$content,$sender_email)
 {
+	
+	$mailcontent = '<div style="width:650px; border-color:red; border-width:1px; border-style:solid; font-family: \'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif;">
+		  
+	<div style="text-align:center; margin-top: 15px;"><img src="'.root().'/banner.jpg" style="width:100%;"></div>
+  
+	<div style="padding:15px;">Dear '.$recipient_name.', <br><br>
+	'.$content.'<br><br>
+				  
 
-// Mail Template
-$mailcontent  = '<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,700,400,300" type="text/css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-</head>
+  You can track the progress of your package on our website via : <a href="'.website().'">'.website().'</a>
+<br><br>
+  <strong>Please note that all third party collections above will require a means of national identification</strong> e.g. International Passport, National ID Card, Driver’s License.
+  <br><br>
+	Warm Regards,<br>
+	'.organisation().' 
+   
+  <div style="width: 100%; height: 1px; background-color: red; margin-top: 40px;"> &nbsp; </div>
+				  <br><img src="'.root().'/social.jpg">
+  
+			  </div>
+		  
+		  </div>
+  ';
+  
 
-<body style="font-family: Calibri;">
-<div style="width:100%; background-color:#FFF; padding:20px;">
-	<div style="width:100%; margin:auto; padding:10px; background:#FFFFFF;">
-    	 <div style="clear:both"></div>
-         
-         	<div id="white_area" style="background-color:#FFFFFF; ">
-			<div style="font-size:16px; color:#010E42; padding-top:10px;">
-			
-			<div>
-			<div style="margin-bottom:15px;" id="username">
-            <input type="image" src="'.root().'/Trans-Global.png" style="width:150px;" />
-            
-				<p>Hello '.ucwords($name).',</p>
-
-			</div>
-			</div>
-			
-			<div style="font-size:16px;"> <p></p>'.$message.'
-			  <p>Best Regards,<br>'.org().' Team<br><br>
-
-			</p>
-			</div>
-			<br>
-		   </div>
-       	   </div><!-- White area ends here -->
-    <div style="color:#FFF; margin-top:20px; margin-bottom:20px;">
-    	<div style="text-align:center; font-size:36px;"></div>
-    </div>
-
-    <div style="clear:both;"></div>
-    
-    <div id="copyright" style="font-size:13px; margin-top:5px;">Copyright &copy; - '.date('Y').'. '.org().'</div>
-    <div style="clear:both;"></div>
-    </div>
-</div>
-</body>
-</html>';
-
-
-   $mail=new PHPMailer();
-//    $mail->IsSMTP();    
-//    $mail->Port = $data['smtp_port'];
-// $mail->SMTPAuth = true;                
-// //sendgrid
-// $mail->Username=$data['smtp_username'];
-// $mail->Password = $data['smtp_password'];  //yahoo app password for noreply email 
-// $mail->Host= $data['smtp_host'];
-// $mail->SMTPSecure = $data['smtp_secure']; 
-$mail->From = sender_email();
-$mail->FromName = $fromName;
+  $mail=new PHPMailer();
+  $mail->IsSMTP();    
+   $mail->Port = 465;
+$mail->SMTPAuth = true;                
+//sendgrid
+$mail->Username= 'alert@transglobalex.com';
+$mail->Password = 'Gwogwo123';  //yahoo app password for noreply email 
+$mail->Host='server303.web-hosting.com';
+$mail->SMTPSecure = 'ssl'; 
+$mail->From = 'alert@transglobalex.com';
+$mail->FromName = org();
 $mail->AddAddress($to);
 
-if($file != 'none')
-{
-  $files = explode(',',$file);
-    for($i=0; $i<count($files); $i++)
-    {
-      $mail->addAttachment($files[$i]);
-    }
+  
+ //  $mail->MsgHTML($body);
+  $mail->CharSet = 'UTF-8';
+  $mail->IsHTML(true);
+  $mail->Body    = $mailcontent;
+  $mail->Subject = $subject;
+  $mail->IsHTML(true);
+  $mail->Send();
+
+  return $mailcontent;
+  
 }
-   
-  //  $mail->MsgHTML($body);
-   $mail->CharSet = 'UTF-8';
-   $mail->IsHTML(true);
-   $mail->Body    = $mailcontent;
-   $mail->Subject = $subject;
-   $mail->IsHTML(true);
-   $mail->Send();
-
-    return $mailcontent;
-
-}
-
 
 ?>

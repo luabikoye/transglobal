@@ -43,20 +43,38 @@
                 </div>
             </div>
             <div style="margin-top: 30px;">
-                <span style="margin: 0px;"><b>Submit your email to get more updates on the shipment</b></span>
+                <span style="margin: 0px;"><b>Your email for notification is: <?php echo $row['r_email']; ?>. </b></span>
                 <br>
                 <br>
                 <div class="row update-mail">
+
                     <div class="col-md-8" style="margin-top: 0px;">
-                        <input type="email" name="" id="" placeholder="Enter your email">
-                        <a href=""><button class="btn-track">Submit</button></a>
+                    <?php if($email_updated)
+                    {
+                        ?>
+ <div class="alert alert-success"><?php echo $email_updated; ?></div>
+                        <?php
+                    }
+                   ?>
+                    <form action="update-email.php" method="post">
+                        <input type="email" name="email" id="" placeholder="Change you email for notification">
+                        
+                        <input type="hidden" name="tracking_id" value="<?php echo $tracking_id; ?>">
+
+                        <button class="btn-track" type="submit">Update</button>
+                    </form>
                         <br>
                         <br>
                         <!-- <a href="" ><h5>MORE OPTIONS</h5></a> -->
                         <br>
                         <br>
+                        <div class="progress" style="height:40px; width: 80%;">
+  <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: <?php echo get_completion($shipment_token); ?>%; font-weight: bold; font-size:16px;" aria-valuenow="<?php echo get_completion($shipment_token); ?>" aria-valuemin="0" aria-valuemax="100"><?php echo get_completion($shipment_token); ?>%</div>
+        </div>
+<br><br>
+                        
                         <div class="custom-dropdown">
-                            <button class="dropdown-button"><b>Alerts(1)</b></button>
+                            <button class="dropdown-button"><b>Tracking updates (<?php echo count_tracking($shipment_token ); ?>)</b></button>
                             <div class="dropdown-content">
                                 <a href="#" class="dropdown-option">No scheduled delivery date available at this time.</a>
                             </div>
@@ -90,7 +108,7 @@
                                 <div class="dot"></div>
                             </div>
                             <div class="roadmap-item">
-                                <h3>TO</h3>
+                                <h3>RECEIVER</h3>
                                 <p><?php echo $row['r_name']; ?>, <?php echo $row['r_address']; ?>
                                 </p>
                                 <div class="dot"></div>
@@ -123,40 +141,88 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p><?php echo mydate($row['delivery_date']); ?></p>
+                        <p><?php echo mydate($row['collection_date']); ?></p>
                     </div>
                 </div>
                 <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
                     <div class="col-md-4">
-                        <p style="color: #fff;"><b>SCHEDULED DELIVERY</b></p>
+                        <p style="color: #fff;"><b>CURRENT STATUS</b></p>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
                         <p style="color: #fff;"><?php echo package_status($shipment_token); ?></p>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-            <h5 style="margin-bottom: 7px;">Services</h5>
-         
-            <div class="container">
-                <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
+                
+                <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
                     <div class="col-md-4">
-                        <p style="color: #fff;"><b>SERVICE</b></p>
+                        <p><b>EXPECTED DELIVERY DATE</b></p>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p style="color: #fff;">FedEx SmartPost</p>
+                        <p><?php echo mydate($row['delivery_date']); ?></p>
+                    </div>
+                </div>
+            </div>
+<br><br>
+            <h5 style="margin-bottom: 7px;">Receiver Information</h5>
+            <div class="container">
+                <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><b>RECEIVER NAME</b></p>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><?php echo $row['r_name']; ?></p>
                     </div>
                 </div>
                 <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
                     <div class="col-md-4">
-                        <p><b>TERMS</b></p>
+                        <p><b>RECEIVER ADDRESS</b></p>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <p>Shipper</p>
+                        <p><?php echo $row['r_address']; ?></p>
+                    </div>
+                </div>
+                <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
+                    <div class="col-md-4"><p style="color: #fff;"><b>RECEIVER PHONE</b></p>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><?php echo substr($row['r_phone'],0,7); ?>****</p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <h5 style="margin-bottom: 7px;">Sender Information</h5>
+            <div class="container">
+                <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><b>SENDER NAME</b></p>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><?php echo $row['s_name']; ?></p>
+                    </div>
+                </div>
+                <div class="row shipment-txt" style=" width: 100%; padding: 6px;">
+                    <div class="col-md-4">
+                        <p><b>SENDER ADDRESS</b></p>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <p><?php echo $row['s_address']; ?></p>
+                    </div>
+                </div>
+                <div class="row shipment-txt" style="background-color: #ff4c4c;  width: 100%; padding: 6px;">
+                    <div class="col-md-4"><p style="color: #fff;"><b>SENDER PHONE</b></p>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <p style="color: #fff;"><?php echo substr($row['s_phone'],0,7); ?>****</p>
                     </div>
                 </div>
             </div>
@@ -192,22 +258,7 @@
                     <div class="col-md-3">
                         <h3>Travel History</h3>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4 ">
-                        <select name="date/time" id="date/time"> 
-                            <option value="title"><b>SORT BY DATE/TIME</b></option>
-                            <option value="ascend">Ascending</option> 
-                            <option value="descend">Descending</option> 
-                        </select>         
-                    </div>
-                    <div class="col-md-4 ">
-                        <select name="date/time" id="date/time"> 
-                            <option value="title"><b>TIME ZONE</b></option>
-                            <option value="local-scan">Local Scan Time</option> 
-                            <option value="origin">Origin</option> 
-                            <option value="others">Others</option>
-                        </select>         
-                    </div>
+                    
                 </div>
             </div>
             <br>
@@ -242,6 +293,7 @@
                }
                ?>
 <br><br>
+        </div>
         <!-- footer -->
         <footer class="w3l-footer-22 py-5">
             <div class="container py-md-5 py-4">

@@ -2,6 +2,9 @@
 
 session_start();  
 
+unset($_SESSION['trans_valid_user']);
+session_destroy();
+
  ?>
 
 <!DOCTYPE html>

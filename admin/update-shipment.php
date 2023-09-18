@@ -233,13 +233,19 @@ if($sh_num > 0)
 
                                 <div class="img-text">
                                     <label>Current Location</label>
-                                    <input type="text" placeholder="Lisbon Portugal, TX" name="current_location" class="form-control"  value="<?php echo $row['current_location'] ;?>" required>
+                                    <input type="text" placeholder="Lisbon Portugal, TX" name="current_location" class="form-control" required>
+                                    <br>
+                                </div>
+
+                                <div class="img-text">
+                                    <label>Completion: <?php echo $sh_row['completion'] ;?> %</label>
+                                    <input type="text" placeholder="Completion %" name="completion" class="form-control"   required>
                                     <br>
                                 </div>
 
                              
                             
-                                <div class="img-text" style="margin-top: 40px;">
+                                <div class="img-text" style="margin-top: 20px;">
                                
                                 <input type="hidden" name="shipment_token" value="<?php echo $shipment_token; ?>">
                                
@@ -260,6 +266,7 @@ if($sh_num > 0)
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Completion</th>
                     <th scope="col">Current Location</th>
                     <th scope="col">Date/Time</th>
                     <th scope="col">Action</th>
@@ -280,6 +287,7 @@ if($sh_num > 0)
                     <tr>
                         <th scope="row"> <?php echo $i+1 ?></th>
                         <td> <?php echo $row['status'] ?></td>
+                        <td> <?php echo $row['completion'] ?>%</td>
                         <td> <?php echo $row['current_location'] ?></td>
                         <td> <?php echo $row['datetime'] ?></td>
                         <td>  

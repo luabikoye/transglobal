@@ -175,9 +175,9 @@
                 <div class="container">
                     <div class="banner-info-bg">
                         <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
-                        <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
+                        <p class="mt-2">Experience the speed of excellence with our logistics solutions.</p>
                         <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
-                            View our Works</a>
+                            Learn more</a>
                     </div>
                 </div>
             </div>
@@ -196,9 +196,9 @@
             <div class="container">
                 <div class="banner-info-bg">
                     <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
-                    <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
+                    <p class="mt-2">Experience the speed of excellence with our logistics solutions.</p>
                     <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
-                        View our Works</a>
+                    Learn more</a>
                 </div>
             </div>
         </div>
@@ -217,9 +217,9 @@
             <div class="container">
                 <div class="banner-info-bg">
                     <h5>We Provide Best <span class="font-weight-bold">Packing & Moving</span> Services</h5>
-                    <p class="mt-2">Sed ut perspiciatis unde omnis iste natus error sit accusantium doloremque.</p>
+                    <p class="mt-2">Experience the speed of excellence with our logistics solutions.</p>
                     <a class="btn btn-style btn-style-white mt-sm-5 mt-4" href="services.php">
-                        View our Works</a>
+                    Learn more</a>
                 </div>
             </div>
         </div>

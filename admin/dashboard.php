@@ -2,6 +2,9 @@
 session_start();
 
 include ('connection/connect.php');
+require_once('include/fns.php');
+
+
 if(!isset($_SESSION['trans_valid_user']))
 {
     include('index.php');
@@ -166,7 +169,7 @@ if(!isset($_SESSION['trans_valid_user']))
                                     </div>
                                 </li>
                                 <li class="ms-auto"><span class="counter text-success">
-                                       0 <!-- count the number or rows in the table -->
+                                       <?php echo count_tab('shipment'); ?> <!-- count the number or rows in the table -->
                                         
                                     </span></li>
 
@@ -183,42 +186,8 @@ if(!isset($_SESSION['trans_valid_user']))
                                     </div>
                                 </li>
                                 <li class="ms-auto"><span class="counter text-purple">
-                                       0
+                                <?php echo count_tab('shipment','r_email'); ?>
                                     </span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Paid Shipments</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash3"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li class="ms-auto"><span class="counter text-purple">
-                                        0
-                                    </span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Unpaid Shipments</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash4"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li class="ms-auto"><span class="counter text-success">
-                                        <!-- count the number or rows in the table -->
-                                        0
-                                    </span></li>
-
                             </ul>
                         </div>
                     </div>
@@ -227,34 +196,18 @@ if(!isset($_SESSION['trans_valid_user']))
                             <h3 class="box-title">Delivered Shipments</h3>
                             <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
-                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                    <div id="sparklinedash3"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
                                 <li class="ms-auto"><span class="counter text-purple">
-                                        0
-                                    </span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">Cash on Delivery</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                                <li>
-                                    <div id="sparklinedash"><canvas width="67" height="30"
-                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                                    </div>
-                                </li>
-                                <li class="ms-auto"><span class="counter text-purple">
-                                        0
+                                <?php echo count_tab_status('shipment','Parcel Delivered'); ?>
                                     </span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-
+                
             </div>
         </div>
 

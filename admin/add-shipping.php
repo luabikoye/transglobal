@@ -1,4 +1,10 @@
 <?php
+
+
+session_start();
+
+include('check_session.php');
+
 require_once('include/fns.php');
 
 ?><!DOCTYPE html>

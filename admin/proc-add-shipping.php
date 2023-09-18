@@ -1,12 +1,12 @@
 <?php 
 
-// session_start();
+session_start();
 
-// include('check_session.php');
+include('check_session.php');
 
     include('connection/connect.php');
     require_once('include/fns.php');
-    // require_once('PHPMailer/PHPMailerAutoload.php');
+    require_once('PHPMailer/PHPMailerAutoload.php');
     
 
    $s_name = htmlspecialchars($_POST['s_name'], ENT_QUOTES, 'UTF-8');
@@ -240,8 +240,39 @@
     
     if($result)
     {  
+        $subject = 'New Package Deliver - '.$tracking_number;
 
+        $message = 'Reference / Tracking: '.$tracking_number.'<br><br>
+
+        You have a parcel with us to be delivered to: <b>'.strtoupper($destination).'</b>. <br><br> Please carefully read the below instructions to retrieve your documents. <br><br>
+        
+        If you are not expecting any parcel of you receive any parcel from us in error. Please contact us immediate on : '.contact_email().' or using the same email address used to received this message.<br><br>
+        
+        Below are details on your parcel<br><br>
+        
+        Sender name: '.strtoupper($s_name).'<br>
+        Address: '.$s_address.'<br>
+        Date parcel was sent: '.mydate($collection_date).'<br><br>
+        
+        Receiver name: '.strtoupper($r_name).'<br>
+        Address: '.$r_address.'<br>
+        Expected delivery date: '.mydate($delivery_date).'<br><br>
+        
+        Status: <strong>'.$status.'</strong><br><br><br>
+        
+        Return by Courier<br><br>
+        
+        If you have already purchased the Courier service, your package will be dispatched within 24 business hours from their receipt to be sent back to you by courier';
+
+        send_email($r_email, $r_name, $subject, $message, sender_email());
         $success1 = 'The shipment has been added successfully.';
+
+
+        //update tracking table immediately
+        $tracking_token = md5($token.date('U'));
+
+        $query2 = "insert into tracking set token = '$tracking_token', shipment_token = '$token', completion = '$completion', status = '$status', current_location = '$origin'";
+        $result2 = mysqli_query($db,$query2);
 
         header('location: add-shipping.php?succ=yes');
         // include('add-shipping.php');

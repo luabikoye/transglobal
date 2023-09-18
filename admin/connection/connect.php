@@ -9,7 +9,9 @@ $db = mysqli_connect('localhost', 'tranyngc_gwo', 'H0bcPO8MA2RWwwvY', 'tranyngc_
   
 // $db = mysqli_connect('localhost', 'transglo', 'H0bcPO8MA2RWwwvY', 'transglo' ) or die ('Cannot connect to database');
 
-  
+
+$imgpath = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']).'/';
+
     
 
 ?>

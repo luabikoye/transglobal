@@ -28,7 +28,7 @@
          </div>
          <div class="col-md-4"></div>
         </div>
-        <h2>The Tracking ID <?php echo $tracking_id; ?> is not valid. <br><br><br><a href="javascript:history.back();">Click here.</a> please check again</h2> <br><br> <br><br> <br><br>
+        <h2><?php echo $tracking_id; ?> is not valid tracking ID. <br><br><br><a href="javascript:history.back();">Click here.</a> please check again</h2> <br><br> <br><br> <br><br>
     </div>
 
 

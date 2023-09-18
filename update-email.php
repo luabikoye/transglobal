@@ -6,6 +6,10 @@ require_once('PHPMailer/PHPMailerAutoload.php');
 
 
 $tracking_id = $_POST['tracking_id'];
+$email = $_POST['email'];
+
+
+$result = mysqli_query($db, "update shipment set r_email = '$email' where tracking_number = '$tracking_id'");
 
 $query = "select * from shipment where tracking_number = '$tracking_id'";
 $result = mysqli_query($db, $query);
@@ -18,6 +22,7 @@ if($num > 0)
     $message = 'A user just tracked package with Tracking ID '.$tracking_id;
      send_email(notification_email(),'Admin','Tracking Action', $message,sender_email());
 
+    $email_updated = 'Email update was successful';
     include('track.php');
 }
 else{
